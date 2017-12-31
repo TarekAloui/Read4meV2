@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Read4me</string>
+    <string name="title_activity_main">Sign in</string>
+    <string name="title_local_library">Local Library</string>
+    <string name="title_read">Read</string>
+    <string name="title_online_library">Online Library</string>
+    <string name="et_email">Email</string>
+    <string name="et_password">Password</string>
+    <string name="tv_sign_in">Sign in</string>
+    <string name="tv_sign_up">Sign up</string>
+    <string name="tv_sign_in_email">Connect to Read4me</string>
+    <string name="tv_sign_in_others">or connect using</string>
+</resources>

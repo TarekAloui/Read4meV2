@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "282109204031",
+    "firebase_url": "https://read4me-165521.firebaseio.com",
+    "project_id": "read4me-165521",
+    "storage_bucket": "read4me-165521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282109204031:android:f37d26b6cfc0d6a4",
+        "android_client_info": {
+          "package_name": "com.aloui.tarek.read4me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282109204031-rc12590i4el8dhnkstfi0ml73t80d9jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aloui.tarek.read4me",
+            "certificate_hash": "bc352ea16751162c8b87b22f183db1324a7b0273"
+          }
+        },
+        {
+          "client_id": "282109204031-1kntdfagfc8v7uaoajcuvva5mnsofcm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM1Ag2lp5s1vhvlWabTllDridTHEendCs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282109204031-1kntdfagfc8v7uaoajcuvva5mnsofcm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
