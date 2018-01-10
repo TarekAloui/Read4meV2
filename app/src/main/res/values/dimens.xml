@@ -27,6 +27,21 @@
     <dimen name="text_size_xlarge">34sp</dimen>
     <dimen name="text_size_xxlarge">45sp</dimen>
     <dimen name="text_size_xxxlarge">56sp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Personal dimens -->
+    <dimen name="tv_input_width">200dp</dimen>
+    <dimen name="tv_input_height">100dp</dimen>
+    <dimen name="im_book_list_width">100dp</dimen>
+    <dimen name="im_book_list_height">100dp</dimen>
+    <dimen name="im_user_width">75dp</dimen>
+    <dimen name="im_user_height">75dp</dimen>
+    <dimen name="btn_item_options_height">30dp</dimen>
+    <dimen name="live_read_menu_height">60dp</dimen>
+    <dimen name="im_btn_play_pause_width">60dp</dimen>
+    <dimen name="im_btn_play_pause_height">60dp</dimen>
 
 
 </resources>

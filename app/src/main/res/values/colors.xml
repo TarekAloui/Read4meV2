@@ -5,8 +5,8 @@
     <color name="colorPrimaryLight">#67daff</color>
     <color name="colorPrimaryText">#37474f</color>
     <color name="colorSecondary">#ff3d00</color>
-    <color name="colorAccent">#ff3d00</color>
+    <color name="colorAccent">#FFC400</color>
     <color name="colorSecondaryDark">#c30000</color>
     <color name="colorSecondaryLight">#ff7539</color>
-    <color name="colorSecondaryText">#fbe9e7</color>
+    <color name="colorSecondaryText">#516974</color>
 </resources>

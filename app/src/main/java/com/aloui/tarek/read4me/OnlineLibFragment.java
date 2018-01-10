@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 import com.aloui.tarek.read4me.R;
 
-public class OnlineLib extends Fragment {
+public class OnlineLibFragment extends Fragment {
 
 
-    public OnlineLib() {
+    public OnlineLibFragment() {
         // Required empty public constructor
     }
 

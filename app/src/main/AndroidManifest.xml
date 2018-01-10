@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aloui.tarek.read4me">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_circle"
@@ -10,8 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main">
+            android:name=".MainNavigationActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +25,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home"></activity>
+        <activity android:name=".Activities.HelpActivity" />
+        <activity
+            android:name=".Activities.AboutUsActivity"
+            android:label="@string/title_activity_about_us" />
+        <activity android:name=".Activities.NewBookActivity" />
+        <activity android:name=".Activities.SettingsActivity" />
+        <activity android:name=".Activities.ReadActivity"></activity>
     </application>
 
 </manifest>

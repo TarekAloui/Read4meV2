@@ -1,9 +1,11 @@
-package com.aloui.tarek.read4me;
+package com.aloui.tarek.read4me.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Help extends AppCompatActivity {
+import com.aloui.tarek.read4me.R;
+
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

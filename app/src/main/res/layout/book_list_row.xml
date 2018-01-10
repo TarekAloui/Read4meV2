@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/item_book_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/im_book_row"
+            android:layout_width="@dimen/im_book_list_width"
+            android:layout_height="@dimen/im_book_list_height"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter" android:contentDescription="@string/im_book_item_desc"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:id="@+id/tv_book_row_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/colorPrimaryText"/>
+            <TextView
+                android:id="@+id/tv_book_row_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/colorSecondaryText"/>
+            <TextView
+                android:id="@+id/tv_book_row_lang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/colorSecondaryText"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/im_btn_options"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitCenter"
+        android:layout_width="wrap_content"
+        android:background="@color/fui_transparent"
+        android:layout_height="@dimen/btn_item_options_height"
+        android:contentDescription="@string/btn_book_item_options"
+        android:src="@drawable/ic_more_vert_blue_grey_700_48dp"/>
+
+</RelativeLayout>

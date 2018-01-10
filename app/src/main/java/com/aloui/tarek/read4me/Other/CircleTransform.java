@@ -1,4 +1,4 @@
-package com.aloui.tarek.read4me;
+package com.aloui.tarek.read4me.Other;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,13 +12,12 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
  * Created by tarek on 5/28/17.
  */
 
-public class CircleTransform extends BitmapTransformation{
+public class CircleTransform extends BitmapTransformation {
     public CircleTransform(Context context) {
         super(context);
     }
 
-    @Override
-    protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
+    @Override protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
         return circleCrop(pool, toTransform);
     }
 
@@ -46,8 +45,7 @@ public class CircleTransform extends BitmapTransformation{
         return result;
     }
 
-    @Override
-    public String getId() {
+    @Override public String getId() {
         return getClass().getName();
     }
 }

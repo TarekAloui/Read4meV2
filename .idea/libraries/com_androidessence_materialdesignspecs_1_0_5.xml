@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.androidessence:materialdesignspecs-1.0.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialdesignspecs-1.0.5.aar/a087ae734e787a2ffbbe414723bb26a0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialdesignspecs-1.0.5.aar/a087ae734e787a2ffbbe414723bb26a0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidessence/materialdesignspecs/1.0.5/78f06521444be5b65865a6304295bc54addef95a/materialdesignspecs-1.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

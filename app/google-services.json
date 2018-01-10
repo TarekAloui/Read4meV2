@@ -15,6 +15,18 @@
       },
       "oauth_client": [
         {
+          "client_id": "282109204031-1agqdg24in5s8ijgl8pna2d9rc1vcqnn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aloui.tarek.read4me",
+            "certificate_hash": "1c4495be3ea55b2a567f322e553d28975f457ab2"
+          }
+        },
+        {
+          "client_id": "282109204031-8qas1kdjfkf9noio2aprqstht47vb7sq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
           "client_id": "282109204031-rc12590i4el8dhnkstfi0ml73t80d9jt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -40,7 +52,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "282109204031-1kntdfagfc8v7uaoajcuvva5mnsofcm4.apps.googleusercontent.com",
+              "client_id": "282109204031-8qas1kdjfkf9noio2aprqstht47vb7sq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

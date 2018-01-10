@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.firebaseui:firebase-ui-auth-3.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-3.1.2.aar/5aaf243a83950de6c6788459c177d045/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-3.1.2.aar/5aaf243a83950de6c6788459c177d045/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-auth/3.1.2/32a4614b1912fba42a794c6c0c2ae7d182e5daa2/firebase-ui-auth-3.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
