@@ -1,21 +1,17 @@
 package com.aloui.tarek.read4me;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.util.Log;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -25,13 +21,11 @@ import com.aloui.tarek.read4me.Activities.AboutUsActivity;
 import com.aloui.tarek.read4me.Activities.SettingsActivity;
 import com.aloui.tarek.read4me.Other.CircleTransform;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.twitter.sdk.android.core.models.User;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +33,8 @@ import java.util.List;
 public class MainNavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    // Choose an arbitrary request code value
+    private static final int RC_SIGN_IN = 123;
     //Navigation Drawer Items
     Toolbar toolbar;
     DrawerLayout drawer;
@@ -49,10 +45,6 @@ public class MainNavigationActivity extends AppCompatActivity
     //Firebase
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-
-
-    // Choose an arbitrary request code value
-    private static final int RC_SIGN_IN = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +78,9 @@ public class MainNavigationActivity extends AppCompatActivity
 
         //FRAGMENTS MANAGEMENT
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.your_placeholder, new HomeFragment());
+        Fragment frag = new HomeFragment();
+        ft.add(R.id.your_placeholder, frag, frag.getClass().getName());
+        ft.commit();
         navigationView.setCheckedItem(R.id.nav_home);
 
 
@@ -175,24 +169,28 @@ public class MainNavigationActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
             // Replace the contents of the container with the new fragment
+            Fragment fragment = new HomeFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.your_placeholder, new HomeFragment());
-            // or ft.add(R.id.your_placeholder, new FooFragment());
-            // Complete the changes added above
+            ft.replace(R.id.your_placeholder, fragment, fragment.getTag());
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             //Setting Title
             toolbar.setTitle(R.string.nav_home);
 
         } else if (id == R.id.nav_local_lib) {
+            Fragment fragment = new LocalLibFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.your_placeholder, new LocalLibFragment());
+            ft.replace(R.id.your_placeholder, fragment, fragment.getTag());
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             //Setting Title
             toolbar.setTitle(R.string.nav_local_lib);
 
         } else if (id == R.id.nav_online_lib) {
+            Fragment fragment = new OnlineLibFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.your_placeholder, new OnlineLibFragment());
+            ft.replace(R.id.your_placeholder, fragment, fragment.getTag());
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             //Setting Title
             toolbar.setTitle(R.string.nav_online_lib);

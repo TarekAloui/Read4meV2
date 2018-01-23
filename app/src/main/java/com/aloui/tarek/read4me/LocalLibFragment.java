@@ -4,27 +4,22 @@ package com.aloui.tarek.read4me;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aloui.tarek.read4me.Activities.NewBookActivity;
@@ -37,8 +32,6 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,10 +40,10 @@ public class LocalLibFragment extends Fragment {
 
     //CONSTANTS
     private static final String LIBRARY  = "Library";
+    FirebaseRecyclerAdapter<Book, BookHolder> mFirebaseAdapter;
     //FIREBASE
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mBooksDatabaseReference;
-    FirebaseRecyclerAdapter<Book, BookHolder> mFirebaseAdapter;
     public LocalLibFragment() {
         // Required empty public constructor
     }
@@ -120,10 +113,27 @@ public class LocalLibFragment extends Fragment {
                                                 Context.MODE_PRIVATE));
                                         database.saveCurBookHash(hashKey);
                                         //Changing Fragment
-                                        getActivity().setTitle("Home");
+                                        // Handle the camera action
+                                        // Replace the contents of the container with the new fragment
+                                        Fragment fragment = new HomeFragment();
                                         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                                        ft.replace(R.id.your_placeholder, new HomeFragment());
+                                        Fragment oldFragment = getActivity().getSupportFragmentManager().findFragmentByTag(fragment.getClass().getName());
+
+                                        //if oldFragment already exits in fragmentManager use it
+                                        if (oldFragment != null) {
+                                            fragment = oldFragment;
+                                        }
+
+                                        ft.replace(R.id.your_placeholder, fragment);
+                                        // or ft.add(R.id.your_placeholder, new FooFragment());
+                                        // Complete the changes added above
+                                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                                         ft.commit();
+                                        //Setting Title
+                                        getActivity().setTitle(R.string.nav_home);
+                                        //Setting focus
+                                        NavigationView navigationView = (NavigationView) getActivity().findViewById(R.id.nav_view);
+                                        navigationView.setCheckedItem(R.id.nav_home);
 
                                         break;
                                     case R.id.item_book_delete:

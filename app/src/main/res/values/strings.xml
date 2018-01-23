@@ -124,5 +124,7 @@
     <string name="btn_book_item_options">Options</string>
     <string name="im_book_item_desc">Options</string>
     <string name="tv_live_pick_book">Please pick a book from the library!</string>
+    <string name="im_btn_control_no_page_loaded">No Pages are loaded!</string>
+    <string name="im_btn_control_no_more_pages_loaded">No More Page are loaded</string>
 
 </resources>
