@@ -13,12 +13,18 @@
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
         android:textSize="@dimen/text_size_large" />
-    <TextView
-        android:id="@+id/tv_live_buffer"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="@dimen/margin_padding_size_medium"/>
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_live_buffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_size_medium" />
+    </ScrollView>
 
     <RelativeLayout
         android:id="@+id/layout_live_control_menu"

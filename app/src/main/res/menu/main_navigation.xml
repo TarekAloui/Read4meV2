@@ -6,4 +6,10 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/btn_assistant"
+        android:icon="@drawable/ic_mic_white_36dp"
+        android:orderInCategory="200"
+        android:title="@string/btn_assistant"
+        app:showAsAction="ifRoom" />
 </menu>

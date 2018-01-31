@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment {
     Handler handler;
     //TEXT TO SPEECH
     TextToSpeech tts;
+    TextToSpeech ttsMessages;
     boolean running = true;
     //Other vars
     boolean firstTime = true;
@@ -107,6 +108,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        ttsMessages = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                ttsMessages.setLanguage(Locale.ENGLISH);
+            }
+        });
+
         if(bookKey.equals("")) {
             tvTitle.setText(R.string.tv_live_pick_book);
             return layout;
@@ -157,7 +165,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //Log.w("DEBUG LANG", dataSnapshot.getValue().toString());
-                if(dataSnapshot.getValue() != null) lang = dataSnapshot.getValue().toString();
+                if (dataSnapshot.getValue() != null) {
+                    lang = dataSnapshot.getValue().toString();
+                    tts.setLanguage(new Locale(lang));
+                }
             }
 
             @Override
@@ -183,6 +194,11 @@ public class HomeFragment extends Fragment {
         if (tts != null) {
             tts.stop();
             tts.shutdown();
+        }
+
+        if (ttsMessages != null) {
+            ttsMessages.stop();
+            ttsMessages.shutdown();
         }
         super.onDestroy();
     }
@@ -231,20 +247,7 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View v) {
                                 //PAUSE
-                                imBtnTtsControl.setImageResource(R.drawable.ic_play_circle_filled_black_48dp);
-                                imBtnTtsControl.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        //Resume
-                                        int len = pages.size();
-                                        for (int i = readInd; i < len; i++) {
-                                            String uniqueId = "" + i;
-                                            tts.speak(pages.get(i), TextToSpeech.QUEUE_ADD, null, uniqueId);
-                                        }
-                                    }
-                                });
-                                running = false;
-                                tts.stop();
+                                pauseReading();
                             }
                         });
                     }
@@ -324,6 +327,61 @@ public class HomeFragment extends Fragment {
 
             }
         });
+    }
+
+    void commandPauseResume() {
+        if (running) pauseReading();
+        else resumeReading();
+    }
+
+    void pauseReading() {
+        imBtnTtsControl.setImageResource(R.drawable.ic_play_circle_filled_black_48dp);
+        imBtnTtsControl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resumeReading();
+            }
+        });
+        running = false;
+        tts.stop();
+    }
+
+    void resumeReading() {
+        //Resume
+        int len = pages.size();
+        if (readInd >= pages.size()) {
+            View constraintL = getActivity().findViewById(R.id.constraint_layout_main);
+            Snackbar.make(constraintL, R.string.im_btn_control_no_more_pages_loaded, Snackbar.LENGTH_LONG).show();
+            ttsMessages.speak(getResources().getString(R.string.im_btn_control_no_more_pages_loaded), TextToSpeech.QUEUE_ADD,
+                    null, "error");
+        } else {
+            for (int i = readInd; i < len; i++) {
+                String uniqueId = "" + i;
+                tts.speak(pages.get(i), TextToSpeech.QUEUE_ADD, null, uniqueId);
+            }
+            running = true;
+        }
+    }
+
+    void nextPage() {
+        if (readInd + 1 < pages.size()) {
+            if (running) tts.stop();
+            readInd = readInd + 1;
+            mBook.child(BOOK_CURRENT_INDEX).setValue(readInd);
+            if (running) resumeReading();
+        }
+    }
+
+    void previousPage() {
+        if (readInd - 1 >= 0) {
+            if (running) tts.stop();
+            readInd = readInd - 1;
+            mBook.child(BOOK_CURRENT_INDEX).setValue(readInd);
+            if (running) {
+                running = false;
+                resumeReading();
+            }
+        }
     }
 }
 

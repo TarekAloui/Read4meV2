@@ -126,5 +126,6 @@
     <string name="tv_live_pick_book">Please pick a book from the library!</string>
     <string name="im_btn_control_no_page_loaded">No Pages are loaded!</string>
     <string name="im_btn_control_no_more_pages_loaded">No More Page are loaded</string>
+    <string name="btn_assistant">Read4me assistant</string>
 
 </resources>
